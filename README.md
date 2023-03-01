@@ -23,8 +23,8 @@ https://avi202020.github.io/Console-Finances/
 
 ## Credits
 
-EdX Front End Developer Bootcamp Group
-Tutor: Natasha Mann
+EdX Front End Developer Bootcamp Tutors
+
 
 ## Contributing
 

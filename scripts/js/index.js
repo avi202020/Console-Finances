@@ -97,17 +97,23 @@ for (i in finances){
 }
 //Calculating financial changes over the period and storing for each period in array element
 i=0
-let financeChanges = [];
+let financeChanges = [867884];
 var counter=1;
-financeChanges[0]=0;
-for (let i = 0; i < finances.length -1; i++) {
-        financeChanges.push(finances[i+1][1] - finances[i][1]);
+for (var i = 1; i < finances.length; i++) {
+  var moneyChange = finances[i][1] - finances[i - 1][1];
+  var month = finances[i][0];
+  financeChanges.push(moneyChange);
 }
+
+
 //Calculating Sum of Financial changes over the period by summing the all the changes stored in financeChanges array
 var sumFinanceChanges=0
-for (i=0;i<financeChanges.length - 1;i++){
-    sumFinanceChanges = sumFinanceChanges + financeChanges[i]
+for (var i = 1; i < finances.length; i++) {
+  sumFinanceChanges += finances[i][1] - finances[i - 1][1];
 }
+
+
+
 //Calculating the Max profit and min profit within financeChanges array
 var maxProfit = Math.max(...financeChanges)
 var minProfit = Math.min(...financeChanges)
@@ -127,7 +133,7 @@ monthMinProfit=finances[indexMin][0]
 console.log("Financial Analysis")
 console.log("--------------------------------")
 console.log("Total Months: "+finances.length)
-console.log("Total : "+total)
-console.log("Average Changes: $"+sumFinanceChanges/financeChanges.length)
+console.log("Total : $"+total)
+console.log("Average Changes: $"+(sumFinanceChanges/(financeChanges.length - 1)).toFixed(2))
 console.log("Greatest Increase in Profits: "+monthMaxProfit+" ($"+maxProfit+")");
 console.log("Greatest Decrease in Profits: "+monthMinProfit+" ($"+minProfit+")");
